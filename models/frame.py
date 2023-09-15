@@ -7,5 +7,7 @@ class Frame(db.Model):
     size = db.Column(db.String(64))
     stock_level = db.Column(db.Integer)
 
+    orders = db.relationship('Order', backref='frame')
+
     def __repr__(self):
         return f'Style: {self.style}, Size: {self.size}, Stock level: {self.stock_level}'

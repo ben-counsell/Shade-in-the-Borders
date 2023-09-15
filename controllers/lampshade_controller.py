@@ -8,11 +8,23 @@ fabric_blueprint = Blueprint('fabric', __name__)
 frame_blueprint = Blueprint('frame', __name__)
 order_blueprint = Blueprint('order', __name__)
 
-@order_blueprint.route('/my_orders/2')
+@order_blueprint.route('/my_orders')
 def list_my_orders():
-    orders = Order.query.all() # this will need to be changed but it will do for now
+    orders = Order.query.all() # this will need to be changed when I add a customer class, but it will do for now
     return render_template('my_orders.jinja', orders=orders)
 
 @order_blueprint.route('/make_new_order')
 def go_to_new_order_page():
-    return render_template('make_new_order.jinja')
+    frames = Frame.query.all()
+    fabrics = Fabric.query.all()
+    return render_template('make_new_order.jinja', frames=frames, fabrics=fabrics)
+
+@order_blueprint.route('/make_new_order', methods=['POST'])
+def place_new_order():
+    frame_style = request.form['frame_style']
+    frame_size = request.form['frame_size']
+    fabric_pattern = request.form['fabric_pattern']
+    new_order = Order(frame_style=frame_style, frame_size=frame_size, fabric_pattern=fabric_pattern)
+    db.session.add(new_order)
+    db.session.commit()
+    return redirect('/my_orders')
