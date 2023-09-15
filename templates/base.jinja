@@ -1,0 +1,21 @@
+<html>
+    <head>
+        <title>{title}</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}">
+    </head>
+    <body>
+        <header>
+            <nav>
+                <ul>
+                    <li><a href="/">Home</a></li>
+                </ul>
+            </nav>
+        </header>
+        {%block content%}
+        {%endblock%}
+    </body>
+    <hr>
+    <footer>
+        
+    </footer>
+</html>
