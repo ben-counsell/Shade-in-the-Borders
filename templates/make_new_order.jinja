@@ -1,12 +1,18 @@
 {% extends "base.jinja" %} {% block content %}
-
+<form name="make_new_order" action="make_new_order" method="post">
+    <h3>Please choose a frame:</h3>    
+        {% for frame in frames %}
+            <label for="{{ frame.style }}">{{ frame.style }}:</label>
+            <input type="radio" name="frame_style" id="{{ frame.style }}" value="{{frame.id}}"/>
+        {% endfor %}
+    <h3>Please choose a fabric:</h3>
+        {% for fabric in fabrics %}
+            <label for="{{ fabric.pattern }}">{{ fabric.pattern }}:</label>
+            <input type="radio" name="fabric_style" id="fabric.pattern" value="{{fabric.id}}"/>
+        {% endfor %}
+    <input type="submit" value="Place order"/>
 </form>
 {% endblock %}
-
-
-
-
-
 
 {# <form name="make_new_order" action="make_new_order" method="post">
     <label for="frame_style">Choose frame style</label>

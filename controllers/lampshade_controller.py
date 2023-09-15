@@ -21,10 +21,9 @@ def go_to_new_order_page():
 
 @order_blueprint.route('/make_new_order', methods=['POST'])
 def place_new_order():
-    frame_style = request.form['frame_style']
-    frame_size = request.form['frame_size']
-    fabric_pattern = request.form['fabric_pattern']
-    new_order = Order(frame_style=frame_style, frame_size=frame_size, fabric_pattern=fabric_pattern)
+    frame = request.form['frame_style']
+    fabric = request.form['fabric_pattern']
+    new_order = Order(frame_id=frame, fabric_id=fabric)
     db.session.add(new_order)
     db.session.commit()
     return redirect('/my_orders')
