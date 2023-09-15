@@ -1,15 +1,17 @@
 <html>
     <head>
-        <title>{title}</title>
-        <link rel="stylesheet" href="{{url_for('static', filename='base.css')}}">
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
     </head>
     <body>
         <header>
             <nav>
                 <ul>
                     <li><a href="/">Home</a></li>
+                    <li><a href="/my_orders/2">My orders</a></li>
                 </ul>
             </nav>
+            <hr>
         </header>
         {%block content%}
         {%endblock%}

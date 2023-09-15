@@ -1,0 +1,9 @@
+{% extends "base.jinja" %} {% block content %}
+<ul>
+    {% for order in orders %}
+        <li>Order ID: {{order.id}}</li>
+        <li>Frame: {{order.frame.style}}</li>
+        <li>Fabric: {{order.fabric.pattern}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
