@@ -1,6 +1,7 @@
 from flask import Blueprint, render_template, request, redirect
 from models.fabric import Fabric
 from models.frame import Frame
+from models.customer import Customer
 from models.order import Order
 from app import db
 

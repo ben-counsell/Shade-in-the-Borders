@@ -1,6 +1,7 @@
 from app import db
 from models.fabric import Fabric
 from models.frame import Frame
+from models.customer import Customer
 from models.order import Order
 import click
 
@@ -11,12 +12,21 @@ from flask.cli import with_appcontext
 def seed():
     db.drop_all()
     db.create_all()
-    fabric1 = Fabric(pattern='Tartan', metres_in_stock=5)
-    fabric2 = Fabric(pattern='Blue', metres_in_stock=4)
-    fabric3 = Fabric(pattern='Paisley', metres_in_stock=3)
-    frame1 = Frame(style='Short Round', size='M', stock_level=7)
-    frame2 = Frame(style='Square', size='S', stock_level=4)
-    frame3 = Frame(style='Cylinder', size='L', stock_level=3)
+    fabric1 = Fabric(pattern='Tartan', metres_in_stock=5.0)
+    fabric2 = Fabric(pattern='Blue', metres_in_stock=4.0)
+    fabric3 = Fabric(pattern='Paisley', metres_in_stock=3.0)
+    frame1 = Frame(style='Short Round', size='S', stock_level=7, metres_required=0.4)
+    frame2 = Frame(style='Short Round', size='M', stock_level=7, metres_required=0.6)
+    frame3 = Frame(style='Short Round', size='L', stock_level=7, metres_required=0.8)
+    frame4 = Frame(style='Square', size='S', stock_level=4, metres_required=0.4)
+    frame5 = Frame(style='Square', size='M', stock_level=4, metres_required=0.6)
+    frame6 = Frame(style='Square', size='L', stock_level=4, metres_required=0.8)
+    frame7 = Frame(style='Cylinder', size='S', stock_level=3, metres_required=0.5)
+    frame8 = Frame(style='Cylinder', size='M', stock_level=3, metres_required=0.7)
+    frame9 = Frame(style='Cylinder', size='L', stock_level=3, metres_required=0.9)
+    customer1 = Customer(first_name='Ben', last_name='Counsell')
+    customer2 = Customer(first_name='Dolly', last_name='Parton')
+    order1 = Order(fabric=fabric1, frame=frame2, customer=customer1)
 
     db.session.add(fabric1)
     db.session.add(fabric2)
@@ -25,5 +35,16 @@ def seed():
     db.session.add(frame1)
     db.session.add(frame2)
     db.session.add(frame3)
+    db.session.add(frame4)
+    db.session.add(frame5)
+    db.session.add(frame6)
+    db.session.add(frame7)
+    db.session.add(frame8)
+    db.session.add(frame9)
+
+    db.session.add(customer1)
+    db.session.add(customer2)
+
+    db.session.add(order1)
 
     db.session.commit()

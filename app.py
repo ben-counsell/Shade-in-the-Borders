@@ -14,6 +14,7 @@ app.cli.add_command(seed)
 
 from models.fabric import Fabric
 from models.frame import Frame
+from models.customer import Customer
 from models.order import Order
 
 from controllers.order_controller import order_blueprint

@@ -5,6 +5,7 @@
         <li>Order ID: {{order.id}}</li>
         <li>Frame: {{order.frame.style}}</li>
         <li>Fabric: {{order.fabric.pattern}}</li>
+        <li>Customer name: {{ order.customer.first_name }} {{ order.customer.last_name }}</li>
     {% endfor %}
 </ul>
 {% endblock %}
