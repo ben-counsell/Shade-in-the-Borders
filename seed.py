@@ -9,15 +9,14 @@ from flask.cli import with_appcontext
 @click.command(name='seed')
 @with_appcontext
 def seed():
-    Fabric.query.delete()
-    Frame.query.delete()
-    fabric1 = Fabric(pattern='Tartan')
-    fabric2 = Fabric(pattern='Blue')
-    fabric3 = Fabric(pattern='Paisley')
+    db.drop_all()
+    db.create_all()
+    fabric1 = Fabric(pattern='Tartan', metres_in_stock=5)
+    fabric2 = Fabric(pattern='Blue', metres_in_stock=4)
+    fabric3 = Fabric(pattern='Paisley', metres_in_stock=3)
     frame1 = Frame(style='Short Round', size='M', stock_level=7)
     frame2 = Frame(style='Square', size='S', stock_level=4)
     frame3 = Frame(style='Cylinder', size='L', stock_level=3)
-    order1 = Order(fabric_id=2, frame_id=3)
 
     db.session.add(fabric1)
     db.session.add(fabric2)
@@ -26,7 +25,5 @@ def seed():
     db.session.add(frame1)
     db.session.add(frame2)
     db.session.add(frame3)
-
-    db.session.add(order1)
 
     db.session.commit()

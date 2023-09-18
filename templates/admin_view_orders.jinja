@@ -1,5 +1,5 @@
-{% extends "customer_base.jinja" %} {% block content %}
-<h1>My orders</h1>
+{% extends "admin_base.jinja" %} {% block content %}
+<h1>Orders</h1>
 <ul>
     {% for order in orders %}
         <li>Order ID: {{order.id}}</li>

@@ -4,7 +4,7 @@ You've been tasked with making an order management system for a local business w
 
 ## MVP
 
-Customers should be able to select a 'Frame' and 'Pattern' for their lampshade, and add these to an 'Order'. The 'Frame' should have a syle, a size, and a stock level. The 'Pattern' should have a name. The frames and patterns will have a many-to-many relationship, which will be connected by the 'Orders' table.
+Customers should be able to select a 'Frame' and 'Pattern' for their lampshade, and add these to an 'Order'. The 'Frame' should have a style, a size, and a stock level. The 'Pattern' should have a name. The frames and patterns will have a many-to-many relationship, which will be connected by the 'Orders' table.
 
 The customer should be able to access a page which displays all their 'Order's, and click through to edit or remove orders.
 

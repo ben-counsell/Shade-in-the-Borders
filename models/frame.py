@@ -6,6 +6,7 @@ class Frame(db.Model):
     style = db.Column(db.String(64))
     size = db.Column(db.String(64))
     stock_level = db.Column(db.Integer)
+    
 
     orders = db.relationship('Order', backref='frame')
 

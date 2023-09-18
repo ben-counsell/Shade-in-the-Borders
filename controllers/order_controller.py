@@ -8,9 +8,14 @@ fabric_blueprint = Blueprint('fabric', __name__)
 frame_blueprint = Blueprint('frame', __name__)
 order_blueprint = Blueprint('order', __name__)
 
+@order_blueprint.route('/view_orders')
+def list_all_orders():
+    orders = Order.query.all() 
+    return render_template('admin_view_orders.jinja', orders=orders)
+
 @order_blueprint.route('/my_orders')
 def list_my_orders():
-    orders = Order.query.all() # this will need to be changed when I add a customer class, but it will do for now
+    orders = Order.query.all() # needs to be changed when i add a customer class
     return render_template('my_orders.jinja', orders=orders)
 
 @order_blueprint.route('/make_new_order')
@@ -27,3 +32,13 @@ def place_new_order():
     db.session.add(new_order)
     db.session.commit()
     return redirect('/my_orders')
+
+@order_blueprint.route('/admin')
+def log_in_as_admin():
+    return render_template('/admin_home.jinja')
+
+@order_blueprint.route('/add_stock')
+def add_stock():
+    frames = Frame.query.all()
+    fabrics = Fabric.query.all()
+    return render_template('/admin_add_stock.jinja', frames=frames, fabrics=fabrics)

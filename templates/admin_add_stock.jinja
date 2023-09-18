@@ -1,0 +1,29 @@
+{% extends "admin_base.jinja" %} {% block content %}
+<h3>Current stock:</h3>
+    <ul>
+        {% for frame in frames %}
+            <li>Frame Style: {{ frame.style }}</li>
+            <li>Frame Size: {{ frame.size }}</li>
+            <li>Number in Stock: {{ frame.stock_level }}</li>
+        {% endfor %}
+    </ul>
+    <h4>Add frame:</h4>
+    <form name="add_frame" action="add_new_frame" method="post">
+        <label for="frame_style">
+        <input type="text" name="frame_style" id="frame_style" required="yes"/>
+
+        <label for="frame_size">
+        <input type="text" name="frame_size" id="frame_size" required="yes"/>
+
+        <label for="frame_stock">
+        <input type="number" name="frame_stock" id="frame_stock" required="yes"/>
+
+        <input type="submit" value="Add stock"/>
+    </form>
+    <ul>
+        {% for fabric in fabrics %}
+            <li>Fabric Pattern: {{ fabric.pattern }}</li>
+            <li>Metres in Stock: {{ fabric.metres_in_stock }}</li>
+        {% endfor %}
+    </ul>
+{% endblock %}
