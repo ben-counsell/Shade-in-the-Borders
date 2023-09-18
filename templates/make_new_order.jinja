@@ -1,14 +1,21 @@
 {% extends 'customer_base.jinja' %} {% block content %}
 <form name='make_new_order' action='make_new_order' method='post'>
-    <h3>Please choose a frame:</h3>    
-        {% for frame in frames %}
-            <label for='frame_style'>{{ frame.style }}:</label>
-            <input type='radio' name='frame_style' id='frame_style' value='{{frame.id}}'/>
-        {% endfor %}
-    <h3>Please choose a fabric:</h3>
+    <h3>Frame style and size:</h3>    
+        {% for style, frame in frames | groupby('style') %}
+            <label for='frame_style'>{{ style }}:</label>
+            <input type='radio' name='frame_style' id='frame_style' value='{{ style }}'/>
+        {% endfor %}<br>
+
+        <label for='frame_size'>S</label>
+        <input type="radio" name="frame_size" id="frame_size" value="S"/>
+        <label for='frame_size'>M</label>
+        <input type="radio" name="frame_size" id="frame_size" value="M"/>
+        <label for='frame_size'>L</label>
+        <input type="radio" name="frame_size" id="frame_size" value="L"/>
+    <h3>Fabric pattern:</h3>
         {% for fabric in fabrics %}
             <label for='fabric_pattern'>{{ fabric.pattern }}:</label>
-            <input type='radio' name='fabric_pattern' id='fabric_pattern' value='{{fabric.id}}'/>
+            <input type='radio' name='fabric_pattern' id='fabric_pattern' value='{{ fabric.id }}'/>
         {% endfor %}
     <input type='submit' value='Place order'/>
 </form>

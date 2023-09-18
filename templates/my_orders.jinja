@@ -7,4 +7,7 @@
         <li>Fabric: {{order.fabric.pattern}}</li>
     {% endfor %}
 </ul>
+{% if out_of_stock == True %}
+<p>Sorry, your order is not in stock.</p>
+{% endif %}
 {% endblock %}
