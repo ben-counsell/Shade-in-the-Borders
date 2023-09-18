@@ -37,7 +37,11 @@ def make_new_order():
             db.session.add(new_order)
             db.session.commit()
             return redirect('/my_orders')
-    return redirect('make_new_order.jinja')
+    frames = Frame.query.all()
+    fabrics = Fabric.query.all()
+    frame_styles = []
+    fabric_patterns = []
+    return render_template('make_new_order.jinja', frames=frames, fabrics=fabrics, frame_styles=frame_styles, fabric_patterns=fabric_patterns, out_of_stock=True)
 
 @order_blueprint.route('/admin')
 def log_in_as_admin():

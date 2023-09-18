@@ -1,13 +1,16 @@
 {% extends 'customer_base.jinja' %} {% block content %}
+{% if out_of_stock == True %}
+<p>Sorry, your order is not in stock.</p>
+{% endif %}
 <form name='make_new_order' action='make_new_order' method='post'>
     <h3>Frame style and size:</h3>    
         {% for style, frame in frames | groupby('style') %}
             <label for='frame_style'>{{ style }}:</label>
-            <input type='radio' name='frame_style' id='frame_style' value='{{ style }}'/>
+            <input type='radio' name='frame_style' id='frame_style' value='{{ style }}' required="yes"/>
         {% endfor %}<br>
 
         <label for='frame_size'>S</label>
-        <input type="radio" name="frame_size" id="frame_size" value="S"/>
+        <input type="radio" name="frame_size" id="frame_size" value="S" required="yes"/>
         <label for='frame_size'>M</label>
         <input type="radio" name="frame_size" id="frame_size" value="M"/>
         <label for='frame_size'>L</label>
@@ -15,7 +18,7 @@
     <h3>Fabric pattern:</h3>
         {% for fabric in fabrics %}
             <label for='fabric_pattern'>{{ fabric.pattern }}:</label>
-            <input type='radio' name='fabric_pattern' id='fabric_pattern' value='{{ fabric.id }}'/>
+            <input type='radio' name='fabric_pattern' id='fabric_pattern' value='{{ fabric.id }}' required="yes"/>
         {% endfor %}
     <input type='submit' value='Place order'/>
 </form>

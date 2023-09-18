@@ -7,6 +7,7 @@ class Order(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     fabric_id = db.Column(db.Integer, db.ForeignKey('fabrics.id'))
     frame_id = db.Column(db.Integer, db.ForeignKey('frames.id'))
+    customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'))
 
     # CHECK IF THIS WORKS AT SOME POINT:
     def __repr__(self):

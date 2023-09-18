@@ -2,12 +2,10 @@
 <h1>My orders</h1>
 <ul>
     {% for order in orders %}
-        <li>Order ID: {{order.id}}</li>
-        <li>Frame: {{order.frame.style}}</li>
-        <li>Fabric: {{order.fabric.pattern}}</li>
+        <li>Order ID: {{ order.id }}</li>
+        <li>Frame style: {{ order.frame.style }}</li>
+        <li>Frame size: {{ order.frame.size }}</li>
+        <li>Fabric: {{ order.fabric.pattern }}</li>
     {% endfor %}
 </ul>
-{% if out_of_stock == True %}
-<p>Sorry, your order is not in stock.</p>
-{% endif %}
 {% endblock %}
