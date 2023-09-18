@@ -4,8 +4,6 @@ from models.frame import Frame
 from models.order import Order
 from app import db
 
-fabric_blueprint = Blueprint('fabric', __name__)
-frame_blueprint = Blueprint('frame', __name__)
 order_blueprint = Blueprint('order', __name__)
 
 @order_blueprint.route('/view_orders')

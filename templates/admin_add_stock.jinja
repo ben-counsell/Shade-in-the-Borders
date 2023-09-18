@@ -4,26 +4,46 @@
         {% for frame in frames %}
             <li>Frame Style: {{ frame.style }}</li>
             <li>Frame Size: {{ frame.size }}</li>
-            <li>Number in Stock: {{ frame.stock_level }}</li>
+            <li>Number in Stock: 
+                <form name="update_frame_stock" action="update_frame_stock/{{ frame.id }}" method="post">
+                    <input type="number" name="update_frame_stock" value="{{ frame.stock_level }}"/>
+                    <input type="submit" value="Update stock"/>
+                </form>
+            </li>
         {% endfor %}
     </ul>
-    <h4>Add frame:</h4>
-    <form name="add_frame" action="add_new_frame" method="post">
-        <label for="frame_style">
+    <h4>Add new frame:</h4>
+    <form name="add_frame" action="add_frame" method="post">
+        <label for="frame_style">Style:</label>
         <input type="text" name="frame_style" id="frame_style" required="yes"/>
 
-        <label for="frame_size">
+        <label for="frame_size">Size:</label>
         <input type="text" name="frame_size" id="frame_size" required="yes"/>
 
-        <label for="frame_stock">
+        <label for="frame_stock">Stock:</label>
         <input type="number" name="frame_stock" id="frame_stock" required="yes"/>
 
-        <input type="submit" value="Add stock"/>
+        <input type="submit" value="Add to stock"/>
     </form>
     <ul>
         {% for fabric in fabrics %}
             <li>Fabric Pattern: {{ fabric.pattern }}</li>
-            <li>Metres in Stock: {{ fabric.metres_in_stock }}</li>
+            <li>Metres in Stock:
+                <form name="update_fabric_stock" action="update_fabric_stock/{{ fabric.id }}" method="post">
+                    <input type="number" name="update_fabric_stock" value="{{ fabric.metres_in_stock }}"/>
+                    <input type="submit" value="Update stock"/>
+                </form>
+            </li>
         {% endfor %}
     </ul>
+    <h4>Add new fabric:</h4>
+    <form name="add_fabric" action="add_fabric" method="post">
+        <label for="fabric_pattern">Pattern</label>
+        <input type="text" name="fabric_pattern" id="fabric_pattern" required="yes"/>
+
+        <label for="metres_in_stock">Metres in stock:</label>
+        <input type="number" name="metres_in_stock" id="metres_in_stock" required="yes"/>
+
+        <input type="submit" value="Add to stock"/>
+    </form>
 {% endblock %}
