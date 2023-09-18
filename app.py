@@ -16,7 +16,7 @@ from models.fabric import Fabric
 from models.frame import Frame
 from models.order import Order
 
-from controllers.lampshade_controller import fabric_blueprint, frame_blueprint, order_blueprint
+from controllers.order_controller import fabric_blueprint, frame_blueprint, order_blueprint
 
 app.register_blueprint(fabric_blueprint)
 app.register_blueprint(frame_blueprint)
