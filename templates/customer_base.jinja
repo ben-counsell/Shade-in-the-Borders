@@ -3,6 +3,7 @@
         <title>{{title}}</title>
         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='orders.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='buttons.css')}}">
     </head>
     <body>
@@ -12,7 +13,7 @@
                 <ul class="menu__list r-list">
                     <li class="menu__group"><a href="/" class="menu__link r-link text-underlined">Home</a></li>
                     <li class="menu__group"><a href="/my_orders/2" class="menu__link r-link text-underlined">My orders</a></li>
-                    <li class="menu__group"><a href="/make_new_order" class="menu__link r-link text-underlined">Make new order</a></li>
+                    <li class="menu__group"><a href="/make_new_order" class="menu__link r-link text-underlined">New order</a></li>
                 </ul>
             </nav>
         </header>

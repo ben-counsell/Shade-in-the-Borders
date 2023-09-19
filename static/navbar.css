@@ -61,7 +61,7 @@ DEPENDENCES
   */
   
   .menu{
-    background-color: var(--menuBackgroundColor, #ceb1be);
+    background-color: var(--menuBackgroundColor, #daddd8);
     box-shadow: var(--menuBoxShadow, 0 1px 3px 0 rgba(0, 0, 0, .12), 0 1px 2px 0 rgba(0, 0, 0, .24));
   }
   

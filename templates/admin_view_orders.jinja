@@ -1,11 +1,13 @@
 {% extends "admin_base.jinja" %} {% block content %}
-<h1>Orders</h1>
-<ul>
+<h2>Orders</h2>
+<div class="grid-container">
     {% for order in orders %}
-        <li>Order ID: {{order.id}}</li>
-        <li>Frame: {{order.frame.style}}</li>
-        <li>Fabric: {{order.fabric.pattern}}</li>
-        <li>Customer name: {{ order.customer.first_name }} {{ order.customer.last_name }}</li>
+        <ul class="grid-item">
+            <li>Order ID: {{order.id}}</li>
+            <li>Frame: {{order.frame.style}}</li>
+            <li>Fabric: {{order.fabric.pattern}}</li>
+            <li>Customer name: {{ order.customer.first_name }} {{ order.customer.last_name }}</li>
+        </ul>
     {% endfor %}
-</ul>
+</div>
 {% endblock %}

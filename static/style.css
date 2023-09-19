@@ -1,5 +1,5 @@
 html {
-    font-family: sans-serif;
+    font-family: Arial, Helvetica, sans-serif;
     background-image: url("87d1bf74-thumb_30996_point_of_interest_bigger.jpeg");
     background-repeat: no-repeat;
     background-size:cover;
@@ -8,31 +8,45 @@ html {
 
 body {
     margin: 0% 20%;
-    height: 100%;
+    min-height: 100vh;
     background-color: #bacba9;
     color: #000;
-    border-left: solid #333;
-    border-right: solid #333;
+    border-left: solid #00241b;
+    border-right: solid #00241b;
+    display: flex;
+    flex-direction: column;
 }
 
 header {
-    background-color: #243119;
+    background-color: #00241b;
     padding: 20px 0px 0px;
 }
 
 h1 {
     padding: 0px 20px;
     margin: 10px 0px;
-    color: white;
+    color: #daddd8;
+}
+
+h2 {
+    color: #00241b;
+    margin-left: 3px;
+    margin-bottom: 0;
 }
 
 main {
     padding-left: 20px;
+    padding-right: 20px;
+}
+
+ul li {
+    list-style: none;
+    list-style-position: inside;
 }
 
 footer {
-    border-top: solid black;
+    border-top: solid #00241b;
     padding: 20px 20px;
+    text-align: right;
+    margin-top: auto;
 }
-
-/* 7d8ca3  */
