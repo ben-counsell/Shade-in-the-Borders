@@ -1,6 +1,6 @@
 {% extends "admin_base.jinja" %} {% block content %}
-<h1>Current stock:</h1>
-    <h2>Frames:</h2>
+<h2>Current stock:</h2>
+    <h3>Frames:</h3>
         <ul>
             {% for frame in frames %}
                 <li>Frame style: {{ frame.style }}</li>
@@ -30,7 +30,7 @@
 
             <button type="submit">Add to stock</button>
         </form>
-    <h2>Fabrics:</h2>
+    <h3>Fabrics:</h3>
         <ul>
             {% for fabric in fabrics %}
                 <li>Fabric pattern: {{ fabric.pattern }}</li>
@@ -42,7 +42,7 @@
                 </li>
             {% endfor %}
         </ul>
-        <h2>Add new fabric:</h2>
+        <h3>Add new fabric:</h3>
         <form name="add_fabric" action="add_fabric" method="post">
             <label for="fabric_pattern">Pattern</label>
             <input type="text" name="fabric_pattern" id="fabric_pattern" required="yes"/>

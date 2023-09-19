@@ -2,7 +2,7 @@ html {
     font-family: Arial, Helvetica, sans-serif;
     background-image: url("87d1bf74-thumb_30996_point_of_interest_bigger.jpeg");
     background-repeat: no-repeat;
-    background-size:cover;
+    background-size: cover;
     background-attachment: fixed;
 }
 
@@ -10,7 +10,6 @@ body {
     margin: 0% 20%;
     min-height: 100vh;
     background-color: #bacba9;
-    color: #000;
     border-left: solid #00241b;
     border-right: solid #00241b;
     display: flex;
@@ -23,15 +22,29 @@ header {
 }
 
 h1 {
-    padding: 0px 20px;
-    margin: 10px 0px;
+    margin: 10px 0 18px;
+    color: #daddd8;
+    text-decoration: none;
+    text-align: center;
+}
+
+h1:hover {
+    color: #c3c9c0;
+}
+
+a {
+    text-decoration: none;
     color: #daddd8;
 }
 
+a:hover {
+    color: #c3c9c0;
+}
+
 h2 {
-    color: #00241b;
-    margin-left: 3px;
+    color: black;
     margin-bottom: 0;
+    border-bottom: 3px solid #00241b;
 }
 
 main {
@@ -49,4 +62,6 @@ footer {
     padding: 20px 20px;
     text-align: right;
     margin-top: auto;
+    background-color: #00241b;
+    box-shadow: var(--menuBoxShadow, 0 1px 5px 0 rgba(0, 0, 0, .20), 0 1px 8px 0 rgba(0, 0, 0, .60));
 }

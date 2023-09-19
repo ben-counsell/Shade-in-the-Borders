@@ -7,8 +7,9 @@
 
 .grid-item {
     background-color: #daddd8;
-    border-radius: 4%;
-    border: solid #00241b;
+    border-radius: 3%;
+    border: 1px solid #00241b;
+    border-top: 3px solid #00241b;
     padding: 4px;
     margin: 0;
 }
