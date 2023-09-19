@@ -2,22 +2,25 @@
     <head>
         <title>{{title}}</title>
         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}">
+        <link rel="stylesheet" href="{{url_for('static', filename='buttons.css')}}">
     </head>
     <body>
         <header>
+            <h1>Shade in the Borders</h1>
             <nav>
-                <ul>
+                <ul class="navbar">
                     <li><a href="/">Home</a></li>
                     <li><a href="/my_orders/2">My orders</a></li>
                     <li><a href="/make_new_order">Make new order</a></li>
                 </ul>
             </nav>
-            <hr>
         </header>
-        {%block content%}
-        {%endblock%}
+        <main>
+            {%block content%}
+            {%endblock%}
+        </main>
     </body>
-    <hr>
     <footer>
         <a href="/admin">Log in as admin</a>
     </footer>

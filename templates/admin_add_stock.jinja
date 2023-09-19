@@ -9,7 +9,7 @@
                 <li>Number in stock: 
                     <form name="update_frame_stock" action="update_frame_stock/{{ frame.id }}" method="post">
                         <input type="number" name="update_frame_stock" value="{{ frame.stock_level }}"/>
-                        <input type="submit" value="Update stock"/>
+                        <button type="submit">Update stock</button>
                     </form>
                 </li>
             {% endfor %}
@@ -28,7 +28,7 @@
             <label for="metres_required">Metres of fabric required:</label>
             <input type="number" step="0.01" name="metres_required" id="metres_required" required="yes"/>
 
-            <input type="submit" value="Add to stock"/>
+            <button type="submit">Add to stock</button>
         </form>
     <h2>Fabrics:</h2>
         <ul>
@@ -37,7 +37,7 @@
                 <li>Metres in stock:
                     <form name="update_fabric_stock" action="update_fabric_stock/{{ fabric.id }}" method="post">
                         <input type="number" name="update_fabric_stock" step="0.01" value="{{ fabric.metres_in_stock }}"/>
-                        <input type="submit" value="Update stock"/>
+                        <button type="submit">Update stock</button>
                     </form>
                 </li>
             {% endfor %}
@@ -50,6 +50,6 @@
             <label for="metres_in_stock">Metres in stock:</label>
             <input type="number" name="metres_in_stock" id="metres_in_stock" required="yes"/>
 
-            <input type="submit" value="Add to stock"/>
+            <button type="submit">Add to stock</button>
         </form>
 {% endblock %}

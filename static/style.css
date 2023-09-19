@@ -1,3 +1,30 @@
-ul {
-    list-style: none;
+html {
+    font-family: sans-serif;
+    background-image: url("87d1bf74-thumb_30996_point_of_interest_bigger.jpeg");
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-attachment: fixed;
+}
+
+body {
+    margin: 0% 20%;
+    height: 100%;
+    background-color: rgb(223, 230, 212);
+    color: #223;
+    border-left: solid #333;
+    border-right: solid #333;
+}
+
+header {
+    background-color: rgb(223, 230, 212);
+    padding: 20px;
+}
+
+main {
+    padding: 20px;
+}
+
+footer {
+    border-top: solid black;
+    padding: 20px
 }

@@ -1,0 +1,31 @@
+input {
+    appearance: none;
+    border-radius: 50%;
+    transition: 0.2s all linear;
+    position: fixed;
+}
+
+.radio {
+    display:flex;
+    gap: 20px;
+    width: 500px;
+}
+
+input:checked {
+    border: 6px solid black
+}
+
+button,
+legend {
+    color: white;
+    background-color: black;
+    padding: 5px 10px;
+    border-radius: 0;
+    border: 0;
+}
+
+button:hover,
+button:focus {
+    color: #999;
+    background-color: #333;
+}

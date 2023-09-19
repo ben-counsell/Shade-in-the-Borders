@@ -3,24 +3,30 @@
 <p>Sorry, your order is not in stock.</p>
 {% endif %}
 <h1>Make new order:</h1>
-    <form name='make_new_order' action='make_new_order' method='post'>
-        <h2>Frame style and size:</h2>    
-            {% for style, frame in frames | groupby('style') %}
-                <label for='frame_style'>{{ style }}:</label>
-                <input type='radio' name='frame_style' id='frame_style' value='{{ style }}' required="yes"/>
-            {% endfor %}<br>
 
-            <label for='frame_size'>S</label>
-            <input type="radio" name="frame_size" id="frame_size" value="S" required="yes"/>
-            <label for='frame_size'>M</label>
-            <input type="radio" name="frame_size" id="frame_size" value="M"/>
-            <label for='frame_size'>L</label>
-            <input type="radio" name="frame_size" id="frame_size" value="L"/>
-        <h2>Fabric pattern:</h2>
-            {% for fabric in fabrics %}
-                <label for='fabric_pattern'>{{ fabric.pattern }}:</label>
-                <input type='radio' name='fabric_pattern' id='fabric_pattern' value='{{ fabric.id }}' required="yes"/>
-            {% endfor %}
-        <input type='submit' value='Place order'/>
+    <form name='make_new_order' action='make_new_order' method='post'>
+        <legend>Frame style and size:</legend>    
+            <div class="radio">
+                {% for style, frame in frames | groupby('style') %}
+                    <input type='radio' name='frame_style' id='{{ style }}' value='{{ style }}' required="yes"/>
+                    <label for='{{ style }}'>{{ style }}</label>
+                {% endfor %}<br>
+            </div>
+            <div class="radio">
+                <input type="radio" name="frame_size" id="frame_size1" value="S" required="yes"/>
+                <label for='frame_size1'>S</label>               
+                <input type="radio" name="frame_size" id="frame_size2" value="M"/>
+                <label for='frame_size2'>M</label>
+                <input type="radio" name="frame_size" id="frame_size3" value="L"/>
+                <label for='frame_size3'>L</label>
+            </div>
+        <legend>Fabric pattern:</legend>
+            <div class="radio">
+                {% for fabric in fabrics %}
+                    <input type='radio' name='fabric_pattern' id='{{ fabric.id }}' value='{{ fabric.id }}' required="yes"/>
+                    <label for='{{ fabric.id }}'>{{ fabric.pattern }}</label>
+                {% endfor %}
+            </div>
+        <button type='submit'>Place order</button>
     </form>
 {% endblock %}
