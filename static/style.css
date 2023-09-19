@@ -9,22 +9,30 @@ html {
 body {
     margin: 0% 20%;
     height: 100%;
-    background-color: rgb(223, 230, 212);
-    color: #223;
+    background-color: #bacba9;
+    color: #000;
     border-left: solid #333;
     border-right: solid #333;
 }
 
 header {
-    background-color: rgb(223, 230, 212);
-    padding: 20px;
+    background-color: #243119;
+    padding: 20px 0px 0px;
+}
+
+h1 {
+    padding: 0px 20px;
+    margin: 10px 0px;
+    color: white;
 }
 
 main {
-    padding: 20px;
+    padding-left: 20px;
 }
 
 footer {
     border-top: solid black;
-    padding: 20px
+    padding: 20px 20px;
 }
+
+/* 7d8ca3  */
