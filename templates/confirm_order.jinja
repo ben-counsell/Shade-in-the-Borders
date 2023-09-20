@@ -1,0 +1,18 @@
+{% extends 'customer_base.jinja' %} {% block content %}
+<h3>Please check and confirm your order:</h3>
+<ul class="grid-item">
+    <li>Frame: <strong>{{ frame_style }}</strong></li>
+    <li>Frame size: <strong>{{ frame_size }}</strong></li>
+    <li>Fabric: <strong>{{ fabric_pattern }}</strong></li>
+    <li>
+        <form name="confirm_order" action="/confirm_order/{{ frame_style }}/{{ frame_size }}/{{ fabric_pattern }}" method="post">
+            <button type="submit">Confirm</button>
+        </form>
+    </li>
+    <li>
+        <form name="cancel_order" action="/make_new_order">
+            <button type="submit">Cancel</button>
+        </form>    
+    </li>
+</ul>
+{% endblock %}

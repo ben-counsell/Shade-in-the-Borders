@@ -27,23 +27,34 @@ def go_to_new_order_page():
 def make_new_order():
     frame_style = request.form['frame_style']
     frame_size = request.form['frame_size']
+    fabric_id = request.form['fabric_pattern']
+    fabric = Fabric.query.get(fabric_id)
     frames = Frame.query.all()
+
     for frame in frames:
         if frame.style == frame_style and frame.size == frame_size:
-            frame = Frame.query.filter(Frame.size == frame_size, Frame.style == frame_style).one()
-            fabric = request.form['fabric_pattern']
-
-            new_order = Order(frame_id=frame.id, fabric_id=fabric, customer_id=2)
-            db.session.add(new_order)
-
-            fabric_to_reduce = Fabric.query.get(fabric)
-            frame.stock_level -= 1
-            fabric_to_reduce.metres_in_stock -= frame.metres_required
-            
-            db.session.commit()
-            return redirect('/my_orders/2')
+            return render_template('/confirm_order.jinja', frame_style=frame_style, frame_size=frame_size, fabric_pattern=fabric.pattern)
+    
     fabrics = Fabric.query.all()
     return render_template('make_new_order.jinja', frames=frames, fabrics=fabrics, out_of_stock=True)
+
+@order_blueprint.route('/confirm_order/<style>/<size>/<pattern>', methods=['POST'])
+def confirm_order(style, size, pattern):
+    frame_style = style
+    frame_size = size
+    fabric_pattern = pattern
+
+    frame = Frame.query.filter(Frame.size == frame_size, Frame.style == frame_style).one()
+    fabric = Fabric.query.filter(Fabric.pattern == fabric_pattern).one()
+
+    new_order = Order(frame_id=frame.id, fabric_id=fabric.id, customer_id=2)
+    db.session.add(new_order)
+
+    frame.stock_level -= 1
+    fabric.metres_in_stock -= frame.metres_required
+    
+    db.session.commit()
+    return redirect('/my_orders/2')
 
 @order_blueprint.route('/<object>_delete_order/<int:id>', methods=['POST'])
 def delete_order(object, id):
