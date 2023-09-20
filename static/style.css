@@ -23,13 +23,7 @@ header {
 
 h1 {
     margin: 10px 0 18px;
-    color: #daddd8;
-    text-decoration: none;
     text-align: center;
-}
-
-h1:hover {
-    color: #c3c9c0;
 }
 
 a {
@@ -38,7 +32,8 @@ a {
 }
 
 a:hover {
-    color: #c3c9c0;
+    color: #bacba9;
+    transition: 0.4s;
 }
 
 h2 {

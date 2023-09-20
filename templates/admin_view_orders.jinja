@@ -3,11 +3,11 @@
 <div class="grid-container">
     {% for order in orders %}
         <ul class="grid-item">
-            <li>Order ID: {{ order.id }}</li>
-            <li>Frame: {{ order.frame.style }}</li>
-            <li>Size: {{ order.frame.size }}</li>
-            <li>Fabric: {{ order.fabric.pattern }}</li>
-            <li>Customer name:<br>{{ order.customer.first_name }} {{ order.customer.last_name }}</li>
+            <li>Order ID: <strong>{{ order.id }}</strong></li>
+            <li>Frame: <strong>{{ order.frame.style }}</strong></li>
+            <li>Size: <strong>{{ order.frame.size }}</strong></li>
+            <li>Fabric: <strong>{{ order.fabric.pattern }}</strong></li>
+            <li>Customer name:<br><strong>{{ order.customer.first_name }} {{ order.customer.last_name }}</strong></li>
             <li>
                 <form name="remove_frame" action="order_delete_order/{{ order.id }}" method="post">
                     <button type="submit">Delete order</button>
