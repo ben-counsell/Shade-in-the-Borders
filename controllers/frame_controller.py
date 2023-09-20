@@ -1,7 +1,5 @@
 from flask import Blueprint, render_template, request, redirect
-from models.fabric import Fabric
 from models.frame import Frame
-from models.customer import Customer
 from models.order import Order
 from app import db
 
@@ -12,7 +10,8 @@ def add_frame():
     style = request.form['frame_style']
     size = request.form['frame_size']
     stock = request.form['frame_stock']
-    new_frame = Frame(style=style, size=size, stock_level=stock)
+    metres_required = request.form['metres_required']
+    new_frame = Frame(style=style, size=size, stock_level=stock, metres_required=metres_required)
     db.session.add(new_frame)
     db.session.commit()
     return redirect('/edit_stock')
