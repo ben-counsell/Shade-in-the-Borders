@@ -1,0 +1,17 @@
+.frame-container,
+.fabric-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 10px;
+    margin: 15px 0px 18px;
+}
+
+.frame,
+.fabric {
+    background-color: #daddd8;
+    border-radius: 3%;
+    border: 1px solid #00241b;
+    border-top: 3px solid #00241b;
+    padding: 5px;
+    margin: 0;
+}
