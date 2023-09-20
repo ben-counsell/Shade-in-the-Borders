@@ -59,14 +59,20 @@ def delete_order(object, id):
             orders_to_be_deleted.append(order)
         elif object == 'fabric' and order.fabric_id == id:
             orders_to_be_deleted.append(order)
+
+    for order in orders_to_be_deleted:
+        order_to_delete = Order.query.get(order.id)
+        db.session.delete(order_to_delete)
+        
+    db.session.commit()
     
-    number_to_be_deleted = len(orders_to_be_deleted)
-    while number_to_be_deleted > 0:
-        next_order_to_delete = orders_to_be_deleted[0]
-        Order.query.filter_by(id=next_order_to_delete.id).delete()
-        number_to_be_deleted -= 1
+    if object == 'frame':
+        Frame.query.filter_by(id=id).delete()
+    if object == 'fabric':
+        Fabric.query.filter_by(id=id).delete()
+    db.session.commit()
     
-    return redirect('/<object>/delete/<id>')
+    return redirect('/add_stock')
 
 @order_blueprint.route('/admin')
 def log_in_as_admin():

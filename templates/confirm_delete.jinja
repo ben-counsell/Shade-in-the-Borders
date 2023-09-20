@@ -1,6 +1,6 @@
 {% extends "admin_base.jinja" %} {% block content %}
 <h2>Caution!</h2>
-<p>The frame you are about to delete is in the following orders:</p>
+<p>The {{ object }} you are about to delete is in the following orders:</p>
 <div class="grid-container">
     {% for order in orders %}
         <ul class="grid-item">

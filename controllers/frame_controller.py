@@ -39,9 +39,8 @@ def remove_frame(id):
             orders_to_be_deleted.append(order)
 
     if frame_included_in_open_order == True:
-            return render_template('/confirm_delete.jinja', orders=orders_to_be_deleted, frame=frame)
-    
-    Frame.query.filter_by(id=id).delete()
-    db.session.commit()
-
-    return redirect('/add_stock')
+        return render_template('/confirm_delete.jinja', orders=orders_to_be_deleted, frame=frame, object='frame')
+    else:
+        Frame.query.filter_by(id=id).delete()
+        db.session.commit()
+        return redirect('/add_stock')
