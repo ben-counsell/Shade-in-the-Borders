@@ -49,6 +49,7 @@ def make_new_order():
 def delete_order(object, id):
     if object == 'order':
         Order.query.filter_by(id=id).delete()
+        db.session.commit()
         return redirect('/view_orders')
     
     orders = Order.query.all()

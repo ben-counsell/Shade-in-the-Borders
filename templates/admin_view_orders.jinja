@@ -8,6 +8,11 @@
             <li>Size: {{ order.frame.size }}</li>
             <li>Fabric: {{ order.fabric.pattern }}</li>
             <li>Customer name:<br>{{ order.customer.first_name }} {{ order.customer.last_name }}</li>
+            <li>
+                <form name="remove_frame" action="order_delete_order/{{ order.id }}" method="post">
+                    <button type="submit">Delete order</button>
+                </form>
+            </li>
         </ul>
     {% endfor %}
 </div>
