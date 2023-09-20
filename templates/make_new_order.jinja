@@ -1,22 +1,39 @@
 {% extends 'customer_base.jinja' %} {% block content %}
 <h2>Make new order:</h2>
-    <form name='make_new_order' action='make_new_order' method='post' class="container">
-        <h3 class="contained">Frame style and size:</h3>    
-            
+    <form name='make_new_order' action='make_new_order' method='post'>
+        <h3 class="grid-container">Frame style and size:</h3>               
+            <div class="radio-menu">
                 {% for style, frame in frames | groupby('style') %}
-                    <input type='radio' name='frame_style' id='{{ style }}' value='{{ style }}' required="yes"/>
-                    <label for='{{ style }}'>{{ style }}</label>
-                {% endfor %}<br>            
-                <input type="radio" name="frame_size" id="frame_size1" value="S" required="yes"/>
-                <label for='frame_size1'>S</label>               
-                <input type="radio" name="frame_size" id="frame_size2" value="M"/>
-                <label for='frame_size2'>M</label>
-                <input type="radio" name="frame_size" id="frame_size3" value="L"/>
-                <label for='frame_size3'>L</label>        <h3 class="contained">Fabric pattern:</h3>
+                    <div class="radio-button">
+                        <input type='radio' name='frame_style' id='{{ style }}' value='{{ style }}' required="yes"/>
+                        <label for='{{ style }}'>{{ style }}</label>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="radio-menu">
+                <div class="radio-button">
+                    <input type="radio" name="frame_size" id="frame_size1" value="S" required="yes"/>
+                    <label for='frame_size1'>S</label>
+                </div> 
+                <div class="radio-button">
+                    <input type="radio" name="frame_size" id="frame_size2" value="M"/>
+                    <label for='frame_size2'>M</label>
+                </div>
+                <div class="radio-button">
+                    <input type="radio" name="frame_size" id="frame_size3" value="L"/>
+                    <label for='frame_size3'>L</label>        
+                </div>    
+            </div>
+        <h3 class="fabric-form">Fabric pattern:</h3>
+            <div class="radio-menu">
                 {% for fabric in fabrics %}
-                    <input type='radio' name='fabric_pattern' id='{{ fabric.id }}' value='{{ fabric.id }}' required="yes"/>
-                    <label for='{{ fabric.id }}'>{{ fabric.pattern }}</label>
-                {% endfor %}        <button type='submit'>Place order</button>
+                    <div class="radio-button">
+                        <input type='radio' name='fabric_pattern' id='{{ fabric.id }}' value='{{ fabric.id }}' required="yes"/>
+                        <label for='{{ fabric.id }}'>{{ fabric.pattern }}</label>
+                    </div>
+                {% endfor %}        
+            </div>
+            <button type='submit'>Place order</button>
     </form>
 {% if out_of_stock == True %}
 <p>Sorry, your order is not in stock.</p>

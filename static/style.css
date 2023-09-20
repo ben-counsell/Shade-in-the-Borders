@@ -26,6 +26,15 @@ h1 {
     text-align: center;
 }
 
+h2 {
+    margin-bottom: 0;
+    border-bottom: 3px solid #00241b;
+}
+
+h3 {
+    margin: 10px 0;
+}
+
 a {
     text-decoration: none;
     color: #daddd8;
@@ -34,12 +43,6 @@ a {
 a:hover {
     color: #bacba9;
     transition: 0.4s;
-}
-
-h2 {
-    color: black;
-    margin-bottom: 0;
-    border-bottom: 3px solid #00241b;
 }
 
 main {
