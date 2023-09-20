@@ -45,6 +45,29 @@ def make_new_order():
     fabrics = Fabric.query.all()
     return render_template('make_new_order.jinja', frames=frames, fabrics=fabrics, out_of_stock=True)
 
+@order_blueprint.route('/<object>_delete_order/<int:id>', methods=['POST'])
+def delete_order(object, id):
+    if object == 'order':
+        Order.query.filter_by(id=id).delete()
+        return redirect('/view_orders')
+    
+    orders = Order.query.all()
+    orders_to_be_deleted = []
+
+    for order in orders:
+        if object == 'frame' and order.frame_id == id:
+            orders_to_be_deleted.append(order)
+        elif object == 'fabric' and order.fabric_id == id:
+            orders_to_be_deleted.append(order)
+    
+    number_to_be_deleted = len(orders_to_be_deleted)
+    while number_to_be_deleted > 0:
+        next_order_to_delete = orders_to_be_deleted[0]
+        Order.query.filter_by(id=next_order_to_delete.id).delete()
+        number_to_be_deleted -= 1
+    
+    return redirect('/<object>/delete/<id>')
+
 @order_blueprint.route('/admin')
 def log_in_as_admin():
     return render_template('/admin_home.jinja')

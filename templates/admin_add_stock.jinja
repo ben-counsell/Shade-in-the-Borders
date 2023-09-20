@@ -12,6 +12,9 @@
                             <input type="number" name="update_frame_stock" value="{{ frame.stock_level }}"/><br>
                             <button type="submit">Update stock</button>
                         </form>
+                        <form name="remove_frame" action="frame/delete/{{ frame.id }}" method="post">
+                            <button type="submit">Remove from stock</button>
+                        </form>
                     </li>
                 </ul>
             {% endfor %}

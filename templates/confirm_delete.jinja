@@ -1,0 +1,18 @@
+{% extends "admin_base.jinja" %} {% block content %}
+<h2>Caution!</h2>
+<p>The frame you are about to delete is in the following orders:</p>
+<div class="grid-container">
+    {% for order in orders %}
+        <ul class="grid-item">
+            <li>Order ID: {{ order.id }}</li>
+            <li>Frame: {{ order.frame.style }}</li>
+            <li>Frame size: {{ order.frame.size }}</li>
+            <li>Fabric: {{ order.fabric.pattern }}</li>
+        </ul>
+    {% endfor %}
+</div>
+<p>Are you sure you also want to remove these orders?</p>
+<form name="confirm_delete" action="/frame_delete_order/{{ frame.id }}" method="post">
+    <button type="submit">Remove from stock</button>
+</form>
+{% endblock %}
