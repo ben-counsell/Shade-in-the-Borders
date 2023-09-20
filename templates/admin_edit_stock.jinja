@@ -1,6 +1,9 @@
 {% extends "admin_base.jinja" %} {% block content %}
 <h2 class="add-stock-container">Current stock:</h2>
     <h3>Frames:</h3>
+    {% if frames|length == 0 %}
+    <p>There are currently no frames in stock</p>
+    {% endif %}
         <div class="frame-container">
             {% for frame in frames %}
                 <ul class="frame">
@@ -38,6 +41,9 @@
             </form>
         </div>
     <h3 class="fabric-container">Fabrics:</h3>
+    {% if fabrics|length == 0 %}
+    <p>There are currently no fabrics in stock</p>
+    {% endif %}
         <div class="fabric-container">
             {% for fabric in fabrics %}
                 <ul class="fabric">
@@ -46,6 +52,11 @@
                         <form name="update_fabric_stock" action="update_fabric_stock/{{ fabric.id }}" method="post">
                             <input type="number" name="update_fabric_stock" step="0.01" value="{{ fabric.metres_in_stock }}"/>
                             <button type="submit">Update stock</button>
+                        </form>
+                    </li>
+                    <li>
+                        <form name="remove_frame" action="fabric/delete/{{ fabric.id }}" method="post">
+                            <button type="submit">Remove from stock</button>
                         </form>
                     </li>
                 </ul>

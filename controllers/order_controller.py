@@ -72,14 +72,14 @@ def delete_order(object, id):
         Fabric.query.filter_by(id=id).delete()
     db.session.commit()
     
-    return redirect('/add_stock')
+    return redirect('/edit_stock')
 
 @order_blueprint.route('/admin')
 def log_in_as_admin():
     return render_template('/admin_home.jinja')
 
-@order_blueprint.route('/add_stock')
+@order_blueprint.route('/edit_stock')
 def add_stock():
     frames = Frame.query.all()
     fabrics = Fabric.query.all()
-    return render_template('/admin_add_stock.jinja', frames=frames, fabrics=fabrics)
+    return render_template('/admin_edit_stock.jinja', frames=frames, fabrics=fabrics)

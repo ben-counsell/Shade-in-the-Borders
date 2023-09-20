@@ -1,6 +1,10 @@
 {% extends "admin_base.jinja" %} {% block content %}
 <h2>Caution!</h2>
-<p>The {{ object }} you are about to delete is in the following orders:</p>
+{% if orders|length == 1 %}
+<p>The {{ object_type }} you are about to delete is in the following order:</p>
+{% else %}
+<p>The {{ object_type }} you are about to delete is in the following orders:</p>
+{% endif %}
 <div class="grid-container">
     {% for order in orders %}
         <ul class="grid-item">
@@ -11,8 +15,12 @@
         </ul>
     {% endfor %}
 </div>
+{% if orders|length == 1 %}
+<p>Are you sure you also want to remove this order?</p>
+{% else %}
 <p>Are you sure you also want to remove these orders?</p>
-<form name="confirm_delete" action="/frame_delete_order/{{ frame.id }}" method="post">
-    <button type="submit">Remove from stock</button>
+{% endif %}
+<form name="confirm_delete" action="/{{ object_type }}_delete_order/{{ object.id }}" method="post">
+    <button type="submit">Confirm</button>
 </form>
 {% endblock %}

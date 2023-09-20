@@ -15,7 +15,7 @@ def add_frame():
     new_frame = Frame(style=style, size=size, stock_level=stock)
     db.session.add(new_frame)
     db.session.commit()
-    return redirect('/add_stock')
+    return redirect('/edit_stock')
 
 @frame_blueprint.route('/update_frame_stock/<int:id>', methods=['POST'])
 def update_frame_stock(id):
@@ -23,7 +23,7 @@ def update_frame_stock(id):
     frame_to_edit = Frame.query.get(id)
     frame_to_edit.stock_level = new_stock_level
     db.session.commit()
-    return redirect('/add_stock')
+    return redirect('/edit_stock')
 
 @frame_blueprint.route('/frame/delete/<int:id>', methods=['POST'])
 def remove_frame(id):
@@ -39,8 +39,8 @@ def remove_frame(id):
             orders_to_be_deleted.append(order)
 
     if frame_included_in_open_order == True:
-        return render_template('/confirm_delete.jinja', orders=orders_to_be_deleted, frame=frame, object='frame')
+        return render_template('/confirm_delete.jinja', orders=orders_to_be_deleted, object=frame, object_type='frame')
     else:
         Frame.query.filter_by(id=id).delete()
         db.session.commit()
-        return redirect('/add_stock')
+        return redirect('/edit_stock')
