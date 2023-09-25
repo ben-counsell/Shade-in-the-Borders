@@ -7,6 +7,9 @@ class Order(db.Model):
     __tablename__ = 'orders'
     id = db.Column(db.Integer, primary_key = True)
     fabric_id = db.Column(db.Integer, db.ForeignKey('fabrics.id'))
+    # for setting up the delete cascade
+    # fabric_id = db.Column(db.Integer, db.ForeignKey('fabrics.id', ondelete='CASCADE'))
+
     frame_id = db.Column(db.Integer, db.ForeignKey('frames.id'))
     customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'))
 
