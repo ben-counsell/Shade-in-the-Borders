@@ -9,6 +9,7 @@ fabric_blueprint = Blueprint('fabric', __name__)
 def add_fabric():
     pattern = request.form['fabric_pattern']
     metres_in_stock = request.form['metres_in_stock']
+    
     new_fabric = Fabric(pattern=pattern, metres_in_stock=metres_in_stock)
     db.session.add(new_fabric)
     db.session.commit()

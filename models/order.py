@@ -10,7 +10,6 @@ class Order(db.Model):
     frame_id = db.Column(db.Integer, db.ForeignKey('frames.id'))
     customer_id = db.Column(db.Integer, db.ForeignKey('customers.id'))
 
-    # CHECK IF THIS WORKS AT SOME POINT:
     def __repr__(self):
         fabric = Fabric.query.get(self.fabric_id)
         frame = Frame.query.get(self.frame_id)

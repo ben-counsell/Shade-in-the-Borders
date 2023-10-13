@@ -12,6 +12,3 @@ class Fabric(db.Model):
 
     def __repr__(self):
         return f'pattern: {self.pattern}, metres in stock: {self.metres_in_stock}'
-    
-    def reduce_stock_by_frame_size(id, frame):
-        pass

@@ -11,6 +11,7 @@ def add_frame():
     size = request.form['frame_size']
     stock = request.form['frame_stock']
     metres_required = request.form['metres_required']
+
     new_frame = Frame(style=style, size=size, stock_level=stock, metres_required=metres_required)
     db.session.add(new_frame)
     db.session.commit()
