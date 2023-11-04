@@ -9,6 +9,8 @@ class Fabric(db.Model):
     metres_in_stock = db.Column(db.Float)
 
     orders = db.relationship('Order', backref='fabric')
+    # for setting up the delete cascade
+    # orders = db.relationship('Order', backref='fabric',cascade='all, delete-orphan')
 
     def __repr__(self):
         return f'pattern: {self.pattern}, metres in stock: {self.metres_in_stock}'

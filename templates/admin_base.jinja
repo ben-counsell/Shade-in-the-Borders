@@ -1,6 +1,11 @@
+{# consider adding folders to better orgnise your templates #}
 <html>
     <head>
         <title>{{title}}</title>
+        {# can consider adding another block here if you want to add css for only certain templates it would look like this, i've added the other part of the example into admin_edit_stock.jinja #}
+        {%block head%}
+        {%endblock%}
+
         <link rel="stylesheet" href="{{url_for('static', filename='style.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='navbar.css')}}">
         <link rel="stylesheet" href="{{url_for('static', filename='orders.css')}}">
